@@ -47,6 +47,6 @@ npm start
 - The user builds a pipeline in the frontend UI
 - On clicking Submit Pipeline, the frontend sends the pipeline data (nodes and edges) to the backend API
 - The backend processes the graph and returns:
-      - Number of nodes
-      - Number of edges
-      - Whether the pipeline is a Directed Acyclic Graph (DAG)
+- Number of nodes
+- Number of edges
+- Whether the pipeline is a Directed Acyclic Graph (DAG)
