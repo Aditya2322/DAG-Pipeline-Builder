@@ -1,5 +1,5 @@
-from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List, Any
 
@@ -7,8 +7,9 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
-    allow_credentials=True,
+    allow_origins=["*"
+                   ],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -60,3 +61,11 @@ def parse_pipeline(pipeline: Pipeline):
     num_edges = len(pipeline.edges)
     dag = is_dag(pipeline.nodes, pipeline.edges)
     return {"num_nodes": num_nodes, "num_edges": num_edges, "is_dag": dag}
+
+
+import os
+
+port = int(os.environ.get("PORT", 10000))
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=port)

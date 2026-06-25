@@ -14,7 +14,7 @@ export const SubmitButton = () => {
 
     setLoading(true);
     try {
-      const response = await fetch('https://dag-pipeline-builder-backend.onrender.com/pipelines/parse', {
+      const response = await fetch("https://dag-pipeline-builder-6.onrender.com/pipelines/parse", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nodes, edges }),
